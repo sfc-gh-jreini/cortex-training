@@ -24,6 +24,7 @@ EXAMPLE_FOLDERS = (
     "sft_quickstart/conversational",
     "sft_quickstart/custom_loss",
     "sft_quickstart/dare",
+    "self_training_loop",
     "rl_quickstart/math_grpo",
     "inference",
     "model_deployment",
@@ -413,6 +414,7 @@ def test_every_example_ships_an_overrides_file_with_a_comment():
     inference = EXAMPLES / "inference" / "overrides.json"
     distillation_overrides = EXAMPLES / "distillation" / "overrides.json"
     dflash2_overrides = EXAMPLES / "dflash2" / "overrides.json"
+    self_training_overrides = EXAMPLES / "self_training_loop" / "overrides.json"
     assert set(EXAMPLES.rglob("overrides.json")) == {
         sft,
         RL_OVERRIDES,
@@ -420,13 +422,14 @@ def test_every_example_ships_an_overrides_file_with_a_comment():
         distillation_overrides,
         DARE_OVERRIDES,
         dflash2_overrides,
+        self_training_overrides,
     }
 
     for path in (sft, inference):
         data = json.loads(path.read_text())
         assert set(data) == {"_comment"} and isinstance(data["_comment"], str) and data["_comment"]
 
-    for path in (RL_OVERRIDES, distillation_overrides, DARE_OVERRIDES, dflash2_overrides):
+    for path in (RL_OVERRIDES, distillation_overrides, DARE_OVERRIDES, dflash2_overrides, self_training_overrides):
         assert isinstance(json.loads(path.read_text()).get("_comment"), str)
 
     dare = json.loads(DARE_OVERRIDES.read_text())
