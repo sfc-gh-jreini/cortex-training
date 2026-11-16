@@ -6,7 +6,7 @@ model then runs the same agent, and the next version trains on all runs kept so
 far. Training data is selected by the judges alone, without reference answers.
 
 This recipe ports the code from
-[Snowflake-Labs/post-train-on-ai-gateway-traces](https://github.com/Snowflake-Labs/post-train-on-ai-gateway-traces),
+[Snowflake-Labs/agent-self-training-loop](https://github.com/Snowflake-Labs/agent-self-training-loop),
 which runs the loop as standalone scripts and ML Jobs and includes the
 architecture diagrams and the cost analysis.
 

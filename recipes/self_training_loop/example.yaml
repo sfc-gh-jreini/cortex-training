@@ -13,5 +13,5 @@ seed_models:
 precision:
   - bfloat16
 provenance:
-  project: Snowflake-Labs/post-train-on-ai-gateway-traces
+  project: Snowflake-Labs/agent-self-training-loop
 last_validated: null
